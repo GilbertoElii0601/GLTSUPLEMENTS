@@ -1,36 +1,156 @@
-:root{
-    --branco-principal: #FFFFFF;
-    --botao-azul: #167BF7;
-    --cor-de-fundo: #00030C;
-    --cor-letra-secundaria:#FFFFFF;
-    --fonte-principal: 'Inter';
-
+/* Reset básico */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
-body{
-    background-color: var(--cor-de-fundo);
-    color: var(--branco-principal);
-    font-family: var(--fonte-principal);
-    font-size: 16px;
-    font-weight: 400px;
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    color: #f0f0f0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-.principal{
-    background-repeat: no-repeat;
-    background-size: contain;
-
+a {
+    color: #f0f0f0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 600;
+}
+a:hover,
+a:focus {
+    color: #ffa500;
+    outline: none;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.principal.hero {
+    min-height: 70vh;
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.principal.hero .overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+.principal.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: #ffcc00;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+.principal.hero p {
+    font-size: 1.1rem;
+    margin: 0 0 2rem;
+    color: #fff;
+    line-height: 1.4;
+}
+.container__botao {
+    display: inline-block;
+    background: #ffcc00;
+    color: #222;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgb(255 204 0 / 0.5);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+.container__botao:hover,
+.container__botao:focus {
+    background: #ffa500;
+    color: #fff;
+    box-shadow: 0 6px 20px rgb(255 165 0 / 0.7);
+    outline: none;
+}
+section.container img {
+    max-width: 300px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    flex-shrink: 0;
+}
+section.container > div {
+    flex: 1;
+    min-width: 260px;
+    color: #eee;
+}
+section.container > div h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00;
+}
+section.container > div p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #ddd;
+    line-height: 1.5;
+}
+/* Details section - reverse order on desktop */
+section.details {
+    background: rgba(30,30,30,0.65);
+    border-radius: 20px;
+    padding: 2rem;
+    flex-wrap: wrap-reverse;
+    gap: 2rem;
+}
+section.details > img {
+    max-width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(255, 204, 0, 0.5);
+    flex-shrink: 0;
+}
+section.catalogo {
+    text-align: center;
+    margin: 4rem 1rem;
+}
+section.catalogo h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00;
+}
+section.catalogo img {
+    max-width: 90%;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(255, 204, 0, 0.5);
+    user-select: none;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    section.container img, section.details > img {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    section.container > div {
+        min-width: auto;
+    }
+    .principal.hero h1 {
+        font-size: 2rem;
+    }
 }
 
-.container{
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 50% 50%;
-}
-
-.container__botao{
-    background-color: var(--botao-azul);
-    border-radius: 10px;
-    color: var(--cor-letra-secundaria) ;
-    padding: 1em;
-    display: block;
-
-
-}
